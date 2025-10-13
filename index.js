@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3) + 1;
     if(computerChoice === 1){
@@ -10,3 +13,18 @@ function getComputerChoice(){
         return console.log("scissors");
     }
 }
+
+function getHumanChoice(){
+    let humanChoice = prompt("Choose Rock, Paper, or Scissors!");
+    if(humanChoice === "Rock"){
+        return console.log("rock");
+    }
+    else if(humanChoice === "Paper"){
+        return console.log("paper");
+    }
+    else if (humanChoice === "Scissors"){
+        return console.log("scissors");
+    }
+}
+
+getHumanChoice();
