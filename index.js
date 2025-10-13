@@ -1,0 +1,12 @@
+function getComputerChoice(){
+    let computerChoice = Math.floor(Math.random() * 3) + 1;
+    if(computerChoice === 1){
+        return console.log("rock");
+    }
+    else if(computerChoice === 2){
+        return console.log("paper");
+    }
+    else{
+        return console.log("scissors");
+    }
+}
