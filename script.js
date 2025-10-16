@@ -11,20 +11,6 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    let humanPick = prompt("Choose Rock, Paper, or Scissors!");
-    humanPick = humanPick.toLowerCase();
-    if(humanPick === "rock"){
-        return "rock";
-    }
-    else if(humanPick === "paper"){
-        return "paper";
-    }
-    else if (humanPick === "scissors"){
-        return "scissors";
-    }
-}
-
 function playRound(humanChoice, computerChoice){
     if(humanChoice === "rock" && computerChoice === "paper"){
         console.log("You lose! Paper beats Rock.");
@@ -55,30 +41,33 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-function playGame(){
-    let humanScore = 0;
-    let computerScore = 0;
+const container = document.querySelector(".container")
+const rock = document.createElement("button");
+const paper = document.createElement("button");
+const scissors = document.createElement("button");
 
-    for(let i=0; i<5; i++){
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-        let result = playRound(humanChoice, computerChoice);
-        if(result === "win"){
-            humanScore++;
-        }
-        else if(result === "lose"){
-            computerScore++;
-        }
-    }
-    if(humanScore > computerScore){
-        console.log("You Win! You: " + humanScore + " Computer: " + computerScore)
-    }
-    else if(humanScore < computerScore){
-        console.log("You Lose! You: " + humanScore + " Computer: " + computerScore)
-    }
-    else{
-        console.log("It is a Draw! You: " + humanScore + " Computer: " + computerScore)
-    }
-}
+rock.classList.add("playerButton");
+paper.classList.add("playerButton");
+scissors.classList.add("playerButton");
+rock.innerText = "rock";
+paper.innerText = "paper";
+scissors.innerText = "scissors";
 
-playGame();
+container.appendChild(rock);
+container.appendChild(paper);
+container.appendChild(scissors);
+
+const buttons = document.querySelectorAll(".playerButton");
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const playerSelection = button.innerText;
+        const computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection)
+    })
+})
+
+const results = document.createElement("div");
+
+
+
+
